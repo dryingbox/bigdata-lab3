@@ -1,0 +1,7 @@
+# 编译产物与运行日志（结果文件与脚本输出保留）
+build/
+*.jar
+*.class
+__pycache__/
+*.log
+实验三 PageRank算法实现(1).docx

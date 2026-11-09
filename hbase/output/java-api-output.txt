@@ -1,0 +1,296 @@
+================ 1. createTable：建立 Student / Course / SC ================
+2026-11-09 20:03:37,428 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-11-09 20:03:37,735 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:zookeeper.version=3.8.4-9316c2a7a97e1666d8f4593f34dd6fc36ecc436c, built on 2024-02-12 22:16 UTC
+2026-11-09 20:03:37,735 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:host.name=dryingbox-VirtualBox
+2026-11-09 20:03:37,735 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:java.version=1.8.0_504
+2026-11-09 20:03:37,735 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:java.vendor=Ubuntu
+2026-11-09 20:03:37,735 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+2026-11-09 20:03:37,735 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: aged-am-launcher-3.3.6.jar:/usr/local/hadoop/share/hadoop/yarn/hadoop-yarn-server-web-proxy-3.3.6.jar:/usr/local/hadoop/share/hadoop/yarn/hadoop-yarn-client-3.3.6.jar:/usr/local/hadoop/share/hadoop/yarn/hadoop-yarn-registry-3.3.6.jar:/usr/local/hadoop/share/hadoop/yarn/hadoop-yarn-applications-mawo-core-3.3.6.jar:/usr/local/hadoop/share/hadoop/yarn/hadoop-yarn-server-common-3.3.6.jar:/usr/local/hadoop/share/hadoop/yarn/hadoop-yarn-server-router-3.3.6.jar:/usr/local/hadoop/share/hadoop/yarn/hadoop-yarn-common-3.3.6.jar:/usr/local/hadoop/share/hadoop/yarn/hadoop-yarn-api-3.3.6.jar:/usr/local/hadoop/share/hadoop/yarn/hadoop-yarn-server-nodemanager-3.3.6.jar:/usr/local/hadoop/share/hadoop/yarn/hadoop-yarn-server-timeline-pluginstorage-3.3.6.jar:/usr/local/hadoop/share/hadoop/yarn/hadoop-yarn-server-applicationhistoryservice-3.3.6.jar:/usr/local/hadoop/share/hadoop/yarn/hadoop-yarn-applications-distributedshell-3.3.6.jar:/usr/local/hadoop/share/hadoop/yarn/hadoop-yarn-services-api-3.3.6.jar
+2026-11-09 20:03:37,736 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+2026-11-09 20:03:37,736 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:java.io.tmpdir=/tmp
+2026-11-09 20:03:37,736 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:java.compiler=<NA>
+2026-11-09 20:03:37,736 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:os.name=Linux
+2026-11-09 20:03:37,736 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:os.arch=amd64
+2026-11-09 20:03:37,736 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:os.version=6.8.0-138-generic
+2026-11-09 20:03:37,736 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:user.name=dryingbox
+2026-11-09 20:03:37,736 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:user.home=/home/dryingbox
+2026-11-09 20:03:37,736 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:user.dir=/home/dryingbox/Hadoop/lab3/hbase
+2026-11-09 20:03:37,736 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:os.memory.free=94MB
+2026-11-09 20:03:37,736 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:os.memory.max=871MB
+2026-11-09 20:03:37,737 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Client environment:os.memory.total=106MB
+2026-11-09 20:03:37,745 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:37,749 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] common.X509Util: Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2026-11-09 20:03:37,756 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:37,775 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:37,781 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:37,781 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:37,785 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:38802, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:37,795 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0004, negotiated timeout = 90000
+2026-11-09 20:03:41,327 INFO  [main] client.HBaseAdmin: Operation: CREATE, Table Name: default:Student, procId: 33 completed
+[createTable] 创建表 Student，列族 [Info]
+2026-11-09 20:03:41,328 INFO  [main] client.ConnectionImplementation: Closing master protocol: MasterService
+2026-11-09 20:03:41,332 INFO  [ReadOnlyZKClient-localhost:2181@0x39d9314d] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:41,333 INFO  [ReadOnlyZKClient-localhost:2181@0x39d9314d] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:41,334 INFO  [ReadOnlyZKClient-localhost:2181@0x39d9314d] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:41,336 INFO  [ReadOnlyZKClient-localhost:2181@0x39d9314d-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:41,336 INFO  [ReadOnlyZKClient-localhost:2181@0x39d9314d-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:41,337 INFO  [ReadOnlyZKClient-localhost:2181@0x39d9314d-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:38814, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:41,345 INFO  [ReadOnlyZKClient-localhost:2181@0x39d9314d-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0005, negotiated timeout = 90000
+2026-11-09 20:03:41,456 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309] zookeeper.ZooKeeper: Session: 0x100003a56ac0004 closed
+2026-11-09 20:03:41,459 INFO  [ReadOnlyZKClient-localhost:2181@0x3ce1e309-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac0004
+2026-11-09 20:03:45,621 INFO  [main] client.HBaseAdmin: Operation: CREATE, Table Name: default:Course, procId: 36 completed
+[createTable] 创建表 Course，列族 [Info]
+2026-11-09 20:03:45,621 INFO  [main] client.ConnectionImplementation: Closing master protocol: MasterService
+2026-11-09 20:03:45,623 INFO  [ReadOnlyZKClient-localhost:2181@0x5b7a8434] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:45,623 INFO  [ReadOnlyZKClient-localhost:2181@0x5b7a8434] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:45,625 INFO  [ReadOnlyZKClient-localhost:2181@0x5b7a8434] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:45,630 INFO  [ReadOnlyZKClient-localhost:2181@0x5b7a8434-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:45,630 INFO  [ReadOnlyZKClient-localhost:2181@0x5b7a8434-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:45,633 INFO  [ReadOnlyZKClient-localhost:2181@0x5b7a8434-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:38830, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:45,644 INFO  [ReadOnlyZKClient-localhost:2181@0x5b7a8434-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0006, negotiated timeout = 90000
+2026-11-09 20:03:45,734 INFO  [ReadOnlyZKClient-localhost:2181@0x39d9314d] zookeeper.ZooKeeper: Session: 0x100003a56ac0005 closed
+2026-11-09 20:03:45,735 INFO  [ReadOnlyZKClient-localhost:2181@0x39d9314d-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac0005
+2026-11-09 20:03:47,870 INFO  [main] client.HBaseAdmin: Operation: CREATE, Table Name: default:SC, procId: 39 completed
+[createTable] 创建表 SC，列族 [Score]
+2026-11-09 20:03:47,870 INFO  [main] client.ConnectionImplementation: Closing master protocol: MasterService
+================ 2. addRecord：插入学生表 / 课程表 / 选课表 ================
+2026-11-09 20:03:47,875 INFO  [ReadOnlyZKClient-localhost:2181@0x2ce6c6ec] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:47,875 INFO  [ReadOnlyZKClient-localhost:2181@0x2ce6c6ec] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:47,876 INFO  [ReadOnlyZKClient-localhost:2181@0x2ce6c6ec] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:47,877 INFO  [ReadOnlyZKClient-localhost:2181@0x2ce6c6ec-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:47,877 INFO  [ReadOnlyZKClient-localhost:2181@0x2ce6c6ec-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:47,878 INFO  [ReadOnlyZKClient-localhost:2181@0x2ce6c6ec-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55276, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:47,883 INFO  [ReadOnlyZKClient-localhost:2181@0x2ce6c6ec-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0007, negotiated timeout = 90000
+2026-11-09 20:03:47,982 INFO  [ReadOnlyZKClient-localhost:2181@0x5b7a8434] zookeeper.ZooKeeper: Session: 0x100003a56ac0006 closed
+2026-11-09 20:03:47,984 INFO  [ReadOnlyZKClient-localhost:2181@0x5b7a8434-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac0006
+[addRecord] Student 行 Zhangsan 写入 3 个单元格
+2026-11-09 20:03:48,020 INFO  [ReadOnlyZKClient-localhost:2181@0x39ac0c0a] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,021 INFO  [ReadOnlyZKClient-localhost:2181@0x39ac0c0a] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,023 INFO  [ReadOnlyZKClient-localhost:2181@0x39ac0c0a] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,025 INFO  [ReadOnlyZKClient-localhost:2181@0x39ac0c0a-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,026 INFO  [ReadOnlyZKClient-localhost:2181@0x39ac0c0a-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,026 INFO  [ReadOnlyZKClient-localhost:2181@0x39ac0c0a-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55284, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,030 INFO  [ReadOnlyZKClient-localhost:2181@0x39ac0c0a-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0008, negotiated timeout = 90000
+[addRecord] Student 行 Mary 写入 3 个单元格
+2026-11-09 20:03:48,081 INFO  [ReadOnlyZKClient-localhost:2181@0x3403e2ac] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,082 INFO  [ReadOnlyZKClient-localhost:2181@0x3403e2ac] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,082 INFO  [ReadOnlyZKClient-localhost:2181@0x3403e2ac] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,085 INFO  [ReadOnlyZKClient-localhost:2181@0x3403e2ac-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,085 INFO  [ReadOnlyZKClient-localhost:2181@0x3403e2ac-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,089 INFO  [ReadOnlyZKClient-localhost:2181@0x3403e2ac-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55296, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,091 INFO  [ReadOnlyZKClient-localhost:2181@0x3403e2ac-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0009, negotiated timeout = 90000
+[addRecord] Student 行 Lisi 写入 3 个单元格
+2026-11-09 20:03:48,122 INFO  [ReadOnlyZKClient-localhost:2181@0x19c65cdc] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,122 INFO  [ReadOnlyZKClient-localhost:2181@0x19c65cdc] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,123 INFO  [ReadOnlyZKClient-localhost:2181@0x19c65cdc] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,124 INFO  [ReadOnlyZKClient-localhost:2181@0x19c65cdc-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,124 INFO  [ReadOnlyZKClient-localhost:2181@0x19c65cdc-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,124 INFO  [ReadOnlyZKClient-localhost:2181@0x19c65cdc-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55310, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,128 INFO  [ReadOnlyZKClient-localhost:2181@0x2ce6c6ec] zookeeper.ZooKeeper: Session: 0x100003a56ac0007 closed
+2026-11-09 20:03:48,128 INFO  [ReadOnlyZKClient-localhost:2181@0x2ce6c6ec-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac0007
+2026-11-09 20:03:48,137 INFO  [ReadOnlyZKClient-localhost:2181@0x19c65cdc-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac000a, negotiated timeout = 90000
+[addRecord] Course 行 123001 写入 2 个单元格
+2026-11-09 20:03:48,178 INFO  [ReadOnlyZKClient-localhost:2181@0x1339e7aa] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,178 INFO  [ReadOnlyZKClient-localhost:2181@0x1339e7aa] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,180 INFO  [ReadOnlyZKClient-localhost:2181@0x1339e7aa] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,183 INFO  [ReadOnlyZKClient-localhost:2181@0x1339e7aa-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,184 INFO  [ReadOnlyZKClient-localhost:2181@0x1339e7aa-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,188 INFO  [ReadOnlyZKClient-localhost:2181@0x1339e7aa-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55312, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,189 INFO  [ReadOnlyZKClient-localhost:2181@0x39ac0c0a] zookeeper.ZooKeeper: Session: 0x100003a56ac0008 closed
+2026-11-09 20:03:48,189 INFO  [ReadOnlyZKClient-localhost:2181@0x39ac0c0a-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac0008
+2026-11-09 20:03:48,192 INFO  [ReadOnlyZKClient-localhost:2181@0x1339e7aa-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac000b, negotiated timeout = 90000
+[addRecord] Course 行 123002 写入 2 个单元格
+2026-11-09 20:03:48,228 INFO  [ReadOnlyZKClient-localhost:2181@0x12359a82] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,228 INFO  [ReadOnlyZKClient-localhost:2181@0x12359a82] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,228 INFO  [ReadOnlyZKClient-localhost:2181@0x12359a82] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,230 INFO  [ReadOnlyZKClient-localhost:2181@0x12359a82-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,230 INFO  [ReadOnlyZKClient-localhost:2181@0x12359a82-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,235 INFO  [ReadOnlyZKClient-localhost:2181@0x12359a82-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55320, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,235 INFO  [ReadOnlyZKClient-localhost:2181@0x3403e2ac] zookeeper.ZooKeeper: Session: 0x100003a56ac0009 closed
+2026-11-09 20:03:48,235 INFO  [ReadOnlyZKClient-localhost:2181@0x3403e2ac-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac0009
+2026-11-09 20:03:48,237 INFO  [ReadOnlyZKClient-localhost:2181@0x12359a82-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac000c, negotiated timeout = 90000
+[addRecord] Course 行 123003 写入 2 个单元格
+2026-11-09 20:03:48,270 INFO  [ReadOnlyZKClient-localhost:2181@0x4f3bbf68] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,270 INFO  [ReadOnlyZKClient-localhost:2181@0x4f3bbf68] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,274 INFO  [ReadOnlyZKClient-localhost:2181@0x4f3bbf68] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,278 INFO  [ReadOnlyZKClient-localhost:2181@0x4f3bbf68-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,278 INFO  [ReadOnlyZKClient-localhost:2181@0x4f3bbf68-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,278 INFO  [ReadOnlyZKClient-localhost:2181@0x4f3bbf68-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55332, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,282 INFO  [ReadOnlyZKClient-localhost:2181@0x4f3bbf68-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac000d, negotiated timeout = 90000
+2026-11-09 20:03:48,289 INFO  [ReadOnlyZKClient-localhost:2181@0x19c65cdc] zookeeper.ZooKeeper: Session: 0x100003a56ac000a closed
+2026-11-09 20:03:48,289 INFO  [ReadOnlyZKClient-localhost:2181@0x19c65cdc-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac000a
+[addRecord] SC 行 Zhangsan 写入 2 个单元格
+2026-11-09 20:03:48,318 INFO  [ReadOnlyZKClient-localhost:2181@0x7a220c9a] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,319 INFO  [ReadOnlyZKClient-localhost:2181@0x7a220c9a] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,319 INFO  [ReadOnlyZKClient-localhost:2181@0x7a220c9a] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,321 INFO  [ReadOnlyZKClient-localhost:2181@0x7a220c9a-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,321 INFO  [ReadOnlyZKClient-localhost:2181@0x7a220c9a-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,322 INFO  [ReadOnlyZKClient-localhost:2181@0x7a220c9a-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55338, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,326 INFO  [ReadOnlyZKClient-localhost:2181@0x7a220c9a-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac000e, negotiated timeout = 90000
+2026-11-09 20:03:48,340 INFO  [ReadOnlyZKClient-localhost:2181@0x1339e7aa] zookeeper.ZooKeeper: Session: 0x100003a56ac000b closed
+2026-11-09 20:03:48,340 INFO  [ReadOnlyZKClient-localhost:2181@0x1339e7aa-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac000b
+[addRecord] SC 行 Mary 写入 2 个单元格
+2026-11-09 20:03:48,367 INFO  [ReadOnlyZKClient-localhost:2181@0x338c99c8] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,367 INFO  [ReadOnlyZKClient-localhost:2181@0x338c99c8] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,368 INFO  [ReadOnlyZKClient-localhost:2181@0x338c99c8] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,372 INFO  [ReadOnlyZKClient-localhost:2181@0x338c99c8-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,372 INFO  [ReadOnlyZKClient-localhost:2181@0x338c99c8-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,373 INFO  [ReadOnlyZKClient-localhost:2181@0x338c99c8-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55350, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,374 INFO  [ReadOnlyZKClient-localhost:2181@0x12359a82] zookeeper.ZooKeeper: Session: 0x100003a56ac000c closed
+2026-11-09 20:03:48,374 INFO  [ReadOnlyZKClient-localhost:2181@0x12359a82-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac000c
+2026-11-09 20:03:48,375 INFO  [ReadOnlyZKClient-localhost:2181@0x338c99c8-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac000f, negotiated timeout = 90000
+2026-11-09 20:03:48,420 INFO  [ReadOnlyZKClient-localhost:2181@0x4f3bbf68] zookeeper.ZooKeeper: Session: 0x100003a56ac000d closed
+2026-11-09 20:03:48,420 INFO  [ReadOnlyZKClient-localhost:2181@0x4f3bbf68-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac000d
+[addRecord] SC 行 Lisi 写入 2 个单元格
+================ 3. scanColumn：按列族 / 按具体列浏览 ================
+-- scanColumn(SC, "Score") --
+2026-11-09 20:03:48,424 INFO  [ReadOnlyZKClient-localhost:2181@0x56673b2c] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,424 INFO  [ReadOnlyZKClient-localhost:2181@0x56673b2c] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,425 INFO  [ReadOnlyZKClient-localhost:2181@0x56673b2c] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,427 INFO  [ReadOnlyZKClient-localhost:2181@0x56673b2c-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,427 INFO  [ReadOnlyZKClient-localhost:2181@0x56673b2c-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,430 INFO  [ReadOnlyZKClient-localhost:2181@0x56673b2c-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55364, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,435 INFO  [ReadOnlyZKClient-localhost:2181@0x56673b2c-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0010, negotiated timeout = 90000
+Lisi	Computer Science=95
+Lisi	Math=98
+Mary	Computer Science=77
+Mary	English=99
+Zhangsan	English=69
+Zhangsan	Math=86
+-- scanColumn(SC, "Score:Math") --
+2026-11-09 20:03:48,465 INFO  [ReadOnlyZKClient-localhost:2181@0x5c44c582] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,466 INFO  [ReadOnlyZKClient-localhost:2181@0x5c44c582] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,466 INFO  [ReadOnlyZKClient-localhost:2181@0x5c44c582] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,470 INFO  [ReadOnlyZKClient-localhost:2181@0x5c44c582-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,470 INFO  [ReadOnlyZKClient-localhost:2181@0x5c44c582-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,470 INFO  [ReadOnlyZKClient-localhost:2181@0x5c44c582-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55376, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,473 INFO  [ReadOnlyZKClient-localhost:2181@0x5c44c582-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0011, negotiated timeout = 90000
+2026-11-09 20:03:48,477 INFO  [ReadOnlyZKClient-localhost:2181@0x7a220c9a] zookeeper.ZooKeeper: Session: 0x100003a56ac000e closed
+2026-11-09 20:03:48,477 INFO  [ReadOnlyZKClient-localhost:2181@0x7a220c9a-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac000e
+Lisi	98
+Mary	null
+Zhangsan	86
+-- scanColumn(SC, "Score:Physics")（不存在，应输出 null） --
+2026-11-09 20:03:48,506 INFO  [ReadOnlyZKClient-localhost:2181@0x7a67e3c6] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,506 INFO  [ReadOnlyZKClient-localhost:2181@0x7a67e3c6] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,508 INFO  [ReadOnlyZKClient-localhost:2181@0x7a67e3c6] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,523 INFO  [ReadOnlyZKClient-localhost:2181@0x7a67e3c6-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,525 INFO  [ReadOnlyZKClient-localhost:2181@0x7a67e3c6-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,526 INFO  [ReadOnlyZKClient-localhost:2181@0x7a67e3c6-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55382, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,528 INFO  [ReadOnlyZKClient-localhost:2181@0x338c99c8] zookeeper.ZooKeeper: Session: 0x100003a56ac000f closed
+2026-11-09 20:03:48,529 INFO  [ReadOnlyZKClient-localhost:2181@0x338c99c8-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac000f
+2026-11-09 20:03:48,532 INFO  [ReadOnlyZKClient-localhost:2181@0x7a67e3c6-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0012, negotiated timeout = 90000
+Lisi	null
+Mary	null
+Zhangsan	null
+================ 4. modifyData：修改 Zhangsan 的 Math 成绩 ================
+[modifyData] 请输入 SC 表 Zhangsan 行 Score:Math 列的新值: 2026-11-09 20:03:48,591 INFO  [ReadOnlyZKClient-localhost:2181@0x56673b2c] zookeeper.ZooKeeper: Session: 0x100003a56ac0010 closed
+2026-11-09 20:03:48,591 INFO  [ReadOnlyZKClient-localhost:2181@0x56673b2c-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac0010
+2026-11-09 20:03:48,608 INFO  [ReadOnlyZKClient-localhost:2181@0x7a55af6b] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,609 INFO  [ReadOnlyZKClient-localhost:2181@0x7a55af6b] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,609 INFO  [ReadOnlyZKClient-localhost:2181@0x7a55af6b] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,611 INFO  [ReadOnlyZKClient-localhost:2181@0x7a55af6b-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,611 INFO  [ReadOnlyZKClient-localhost:2181@0x7a55af6b-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,612 INFO  [ReadOnlyZKClient-localhost:2181@0x7a55af6b-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55394, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,616 INFO  [ReadOnlyZKClient-localhost:2181@0x7a55af6b-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0013, negotiated timeout = 90000
+2026-11-09 20:03:48,623 INFO  [ReadOnlyZKClient-localhost:2181@0x5c44c582] zookeeper.ZooKeeper: Session: 0x100003a56ac0011 closed
+2026-11-09 20:03:48,624 INFO  [ReadOnlyZKClient-localhost:2181@0x5c44c582-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac0011
+[modifyData] Zhangsan 的 Score:Math 已改为 95
+-- 修改后 SC 表 --
+2026-11-09 20:03:48,661 INFO  [ReadOnlyZKClient-localhost:2181@0x7582ff54] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,661 INFO  [ReadOnlyZKClient-localhost:2181@0x7582ff54] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,662 INFO  [ReadOnlyZKClient-localhost:2181@0x7582ff54] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,664 INFO  [ReadOnlyZKClient-localhost:2181@0x7582ff54-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,664 INFO  [ReadOnlyZKClient-localhost:2181@0x7582ff54-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,664 INFO  [ReadOnlyZKClient-localhost:2181@0x7582ff54-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55410, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,668 INFO  [ReadOnlyZKClient-localhost:2181@0x7582ff54-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0014, negotiated timeout = 90000
+  Lisi: Score:Computer Science=95 Score:Math=98
+  Mary: Score:Computer Science=77 Score:English=99
+  Zhangsan: Score:English=69 Score:Math=95
+  共 3 行
+================ 5. deleteRow：删除 Lisi 的行，再恢复 ================
+2026-11-09 20:03:48,695 INFO  [ReadOnlyZKClient-localhost:2181@0x74589991] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,696 INFO  [ReadOnlyZKClient-localhost:2181@0x74589991] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,696 INFO  [ReadOnlyZKClient-localhost:2181@0x74589991] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,701 INFO  [ReadOnlyZKClient-localhost:2181@0x74589991-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,701 INFO  [ReadOnlyZKClient-localhost:2181@0x74589991-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,701 INFO  [ReadOnlyZKClient-localhost:2181@0x74589991-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55426, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,705 INFO  [ReadOnlyZKClient-localhost:2181@0x7a67e3c6] zookeeper.ZooKeeper: Session: 0x100003a56ac0012 closed
+2026-11-09 20:03:48,705 INFO  [ReadOnlyZKClient-localhost:2181@0x7a67e3c6-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac0012
+2026-11-09 20:03:48,706 INFO  [ReadOnlyZKClient-localhost:2181@0x74589991-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0015, negotiated timeout = 90000
+[deleteRow] 已删除 SC 表的行 Lisi
+-- 删除后 SC 表 --
+2026-11-09 20:03:48,742 INFO  [ReadOnlyZKClient-localhost:2181@0x6cce16f4] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,742 INFO  [ReadOnlyZKClient-localhost:2181@0x6cce16f4] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,743 INFO  [ReadOnlyZKClient-localhost:2181@0x6cce16f4] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,744 INFO  [ReadOnlyZKClient-localhost:2181@0x6cce16f4-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,744 INFO  [ReadOnlyZKClient-localhost:2181@0x6cce16f4-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,745 INFO  [ReadOnlyZKClient-localhost:2181@0x6cce16f4-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55438, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,749 INFO  [ReadOnlyZKClient-localhost:2181@0x6cce16f4-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0016, negotiated timeout = 90000
+2026-11-09 20:03:48,769 INFO  [ReadOnlyZKClient-localhost:2181@0x7a55af6b] zookeeper.ZooKeeper: Session: 0x100003a56ac0013 closed
+2026-11-09 20:03:48,769 INFO  [ReadOnlyZKClient-localhost:2181@0x7a55af6b-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac0013
+  Mary: Score:Computer Science=77 Score:English=99
+  Zhangsan: Score:English=69 Score:Math=95
+  共 2 行
+2026-11-09 20:03:48,796 INFO  [ReadOnlyZKClient-localhost:2181@0x7582ff54] zookeeper.ZooKeeper: Session: 0x100003a56ac0014 closed
+2026-11-09 20:03:48,798 INFO  [ReadOnlyZKClient-localhost:2181@0x7582ff54-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac0014
+2026-11-09 20:03:48,803 INFO  [ReadOnlyZKClient-localhost:2181@0x416c58f5] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,803 INFO  [ReadOnlyZKClient-localhost:2181@0x416c58f5] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,804 INFO  [ReadOnlyZKClient-localhost:2181@0x416c58f5] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,811 INFO  [ReadOnlyZKClient-localhost:2181@0x416c58f5-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,811 INFO  [ReadOnlyZKClient-localhost:2181@0x416c58f5-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,813 INFO  [ReadOnlyZKClient-localhost:2181@0x416c58f5-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55452, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,818 INFO  [ReadOnlyZKClient-localhost:2181@0x416c58f5-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0017, negotiated timeout = 90000
+2026-11-09 20:03:48,846 INFO  [ReadOnlyZKClient-localhost:2181@0x74589991] zookeeper.ZooKeeper: Session: 0x100003a56ac0015 closed
+2026-11-09 20:03:48,846 INFO  [ReadOnlyZKClient-localhost:2181@0x74589991-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac0015
+[addRecord] SC 行 Lisi 写入 2 个单元格
+-- 恢复后 SC 表 --
+2026-11-09 20:03:48,858 INFO  [ReadOnlyZKClient-localhost:2181@0x02bb3058] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,858 INFO  [ReadOnlyZKClient-localhost:2181@0x02bb3058] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,859 INFO  [ReadOnlyZKClient-localhost:2181@0x02bb3058] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,862 INFO  [ReadOnlyZKClient-localhost:2181@0x02bb3058-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,862 INFO  [ReadOnlyZKClient-localhost:2181@0x02bb3058-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,863 INFO  [ReadOnlyZKClient-localhost:2181@0x02bb3058-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55466, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,867 INFO  [ReadOnlyZKClient-localhost:2181@0x02bb3058-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0018, negotiated timeout = 90000
+  Lisi: Score:Computer Science=95 Score:Math=98
+  Mary: Score:Computer Science=77 Score:English=99
+  Zhangsan: Score:English=69 Score:Math=95
+  共 3 行
+================ Student / Course 表内容 ================
+2026-11-09 20:03:48,907 INFO  [ReadOnlyZKClient-localhost:2181@0x512baff6] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:48,908 INFO  [ReadOnlyZKClient-localhost:2181@0x512baff6] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:48,909 INFO  [ReadOnlyZKClient-localhost:2181@0x512baff6] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:48,914 INFO  [ReadOnlyZKClient-localhost:2181@0x6cce16f4] zookeeper.ZooKeeper: Session: 0x100003a56ac0016 closed
+2026-11-09 20:03:48,914 INFO  [ReadOnlyZKClient-localhost:2181@0x6cce16f4-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac0016
+2026-11-09 20:03:48,915 INFO  [ReadOnlyZKClient-localhost:2181@0x512baff6-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:48,915 INFO  [ReadOnlyZKClient-localhost:2181@0x512baff6-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:48,916 INFO  [ReadOnlyZKClient-localhost:2181@0x512baff6-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55472, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:48,954 INFO  [ReadOnlyZKClient-localhost:2181@0x512baff6-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac0019, negotiated timeout = 90000
+2026-11-09 20:03:48,965 INFO  [ReadOnlyZKClient-localhost:2181@0x416c58f5] zookeeper.ZooKeeper: Session: 0x100003a56ac0017 closed
+2026-11-09 20:03:48,975 INFO  [ReadOnlyZKClient-localhost:2181@0x416c58f5-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac0017
+2026-11-09 20:03:49,018 INFO  [ReadOnlyZKClient-localhost:2181@0x02bb3058] zookeeper.ZooKeeper: Session: 0x100003a56ac0018 closed
+2026-11-09 20:03:49,018 INFO  [ReadOnlyZKClient-localhost:2181@0x02bb3058-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x100003a56ac0018
+  Lisi: Info:S_Age=24 Info:S_No=2015003 Info:S_Sex=male
+  Mary: Info:S_Age=22 Info:S_No=2015002 Info:S_Sex=female
+  Zhangsan: Info:S_Age=23 Info:S_No=2015001 Info:S_Sex=male
+  共 3 行
+2026-11-09 20:03:49,027 INFO  [ReadOnlyZKClient-localhost:2181@0x130e116b] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:49,027 INFO  [ReadOnlyZKClient-localhost:2181@0x130e116b] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:49,030 INFO  [ReadOnlyZKClient-localhost:2181@0x130e116b] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:49,031 INFO  [ReadOnlyZKClient-localhost:2181@0x130e116b-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:49,032 INFO  [ReadOnlyZKClient-localhost:2181@0x130e116b-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:49,037 INFO  [ReadOnlyZKClient-localhost:2181@0x130e116b-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55478, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:49,041 INFO  [ReadOnlyZKClient-localhost:2181@0x130e116b-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac001a, negotiated timeout = 90000
+  123001: Info:C_Credit=2.0 Info:C_Name=Math
+  123002: Info:C_Credit=5.0 Info:C_Name=Computer Science
+  123003: Info:C_Credit=3.0 Info:C_Name=English
+  共 3 行
+2026-11-09 20:03:49,076 INFO  [ReadOnlyZKClient-localhost:2181@0x0a4add54] zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$15/1389953353@fb15bed
+2026-11-09 20:03:49,077 INFO  [ReadOnlyZKClient-localhost:2181@0x0a4add54] zookeeper.ClientCnxnSocket: jute.maxbuffer value is 1048575 Bytes
+2026-11-09 20:03:49,080 INFO  [ReadOnlyZKClient-localhost:2181@0x0a4add54] zookeeper.ClientCnxn: zookeeper.request.timeout value is 0. feature enabled=false
+2026-11-09 20:03:49,082 INFO  [ReadOnlyZKClient-localhost:2181@0x0a4add54-SendThread(localhost:2181)] zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181.
+2026-11-09 20:03:49,082 INFO  [ReadOnlyZKClient-localhost:2181@0x0a4add54-SendThread(localhost:2181)] zookeeper.ClientCnxn: SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2026-11-09 20:03:49,083 INFO  [ReadOnlyZKClient-localhost:2181@0x0a4add54-SendThread(localhost:2181)] zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:55480, server: localhost/127.0.0.1:2181
+2026-11-09 20:03:49,085 INFO  [ReadOnlyZKClient-localhost:2181@0x0a4add54-SendThread(localhost:2181)] zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100003a56ac001b, negotiated timeout = 90000
+[listTables] HBase 中共有 3 张表: [Course, SC, Student]
+2026-11-09 20:03:49,112 INFO  [main] client.ConnectionImplementation: Closing master protocol: MasterService

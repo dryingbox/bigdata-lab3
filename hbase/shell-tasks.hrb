@@ -1,0 +1,32 @@
+# HBase Shell 完成题目要求的 5 项操作（面向 Java API 建好的 Student / Course / SC 表）
+# 运行：hbase shell hbase/shell-tasks.hrb
+
+# 1. 列出 HBase 所有表及其表名
+list
+
+# 2. 在终端显示指定表的全部记录（以 Student 表为例）
+scan 'Student'
+
+# 3. 向已建好的表添加 / 删除指定的列族，以及添加 / 删除指定的列
+alter 'Student', {NAME => 'Extra'}
+put 'Student', 'Zhangsan', 'Extra:note', 'temporary'
+get 'Student', 'Zhangsan'
+delete 'Student', 'Zhangsan', 'Extra:note'
+get 'Student', 'Zhangsan'
+alter 'Student', {NAME => 'Extra', METHOD => 'delete'}
+describe 'Student'
+
+# 4. 清空指定表的所有记录（用演示表操作，避免破坏实验数据；truncate 保留表结构）
+create 'lab3_truncate_demo', 'info'
+put 'lab3_truncate_demo', 'r1', 'info:name', 'a'
+put 'lab3_truncate_demo', 'r2', 'info:name', 'b'
+count 'lab3_truncate_demo'
+truncate 'lab3_truncate_demo'
+count 'lab3_truncate_demo'
+disable 'lab3_truncate_demo'
+drop 'lab3_truncate_demo'
+
+# 5. 统计表的行数（以选课表 SC 为例）
+count 'SC'
+
+exit

@@ -1,0 +1,107 @@
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/local/hadoop-3.3.6/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/hbase-2.4.18/lib/client-facing-thirdparty/slf4j-reload4j-1.7.33.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Reload4jLoggerFactory]
+hbase:001:0> # HBase Shell 完成题目要求的 5 项操作（面向 Java API 建好的 Student / Course / SC 表）
+hbase:002:0> # 运行：hbase shell hbase/shell-tasks.hrb
+hbase:003:0> 
+hbase:004:0> # 1. 列出 HBase 所有表及其表名
+hbase:005:0> list
+TABLE
+Course
+SC
+Student
+3 row(s)
+Took 0.7796 seconds
+=> ["Course", "SC", "Student"]
+hbase:006:0> 
+hbase:007:0> # 2. 在终端显示指定表的全部记录（以 Student 表为例）
+hbase:008:0> scan 'Student'
+ROW  COLUMN+CELL
+ Lisi column=Info:S_Age, timestamp=2026-11-09T20:03:48.115, value=24
+ Lisi column=Info:S_No, timestamp=2026-11-09T20:03:48.115, value=2015003
+ Lisi column=Info:S_Sex, timestamp=2026-11-09T20:03:48.115, value=male
+ Mary column=Info:S_Age, timestamp=2026-11-09T20:03:48.074, value=22
+ Mary column=Info:S_No, timestamp=2026-11-09T20:03:48.074, value=2015002
+ Mary column=Info:S_Sex, timestamp=2026-11-09T20:03:48.074, value=female
+ Zhangsan column=Info:S_Age, timestamp=2026-11-09T20:03:48.002, value=23
+ Zhangsan column=Info:S_No, timestamp=2026-11-09T20:03:48.002, value=2015001
+ Zhangsan column=Info:S_Sex, timestamp=2026-11-09T20:03:48.002, value=male
+3 row(s)
+Took 0.8117 seconds
+hbase:009:0> 
+hbase:010:0> # 3. 向已建好的表添加 / 删除指定的列族，以及添加 / 删除指定的列
+hbase:011:0> alter 'Student', {NAME => 'Extra'}
+Updating all regions with the new schema...
+1/1 regions updated.
+Done.
+Took 2.5319 seconds
+hbase:012:0> put 'Student', 'Zhangsan', 'Extra:note', 'temporary'
+Took 0.0497 seconds
+hbase:013:0> get 'Student', 'Zhangsan'
+COLUMN  CELL
+ Extra:note timestamp=2026-11-09T20:04:36.258, value=temporary
+ Info:S_Age timestamp=2026-11-09T20:03:48.002, value=23
+ Info:S_No timestamp=2026-11-09T20:03:48.002, value=2015001
+ Info:S_Sex timestamp=2026-11-09T20:03:48.002, value=male
+1 row(s)
+Took 0.0411 seconds
+hbase:014:0> delete 'Student', 'Zhangsan', 'Extra:note'
+Took 0.0188 seconds
+hbase:015:0> get 'Student', 'Zhangsan'
+COLUMN  CELL
+ Info:S_Age timestamp=2026-11-09T20:03:48.002, value=23
+ Info:S_No timestamp=2026-11-09T20:03:48.002, value=2015001
+ Info:S_Sex timestamp=2026-11-09T20:03:48.002, value=male
+1 row(s)
+Took 0.0150 seconds
+hbase:016:0> alter 'Student', {NAME => 'Extra', METHOD => 'delete'}
+Updating all regions with the new schema...
+1/1 regions updated.
+Done.
+Took 2.4570 seconds
+hbase:017:0> describe 'Student'
+Table Student is ENABLED
+Student
+COLUMN FAMILIES DESCRIPTION
+{NAME => 'Info', BLOOMFILTER => 'ROW', IN_MEMORY => 'false', VERSIONS => '1', KEEP_DELETED_CELLS => 'FALSE', DATA_BLOCK_ENCODING => 'NONE', COMPRESSION => 'NONE', TTL => 'FOREVER', MIN_VERSIONS => '0', BLOCKCACHE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+
+1 row(s)
+Quota is disabled
+Took 0.0730 seconds
+hbase:018:0> 
+hbase:019:0> # 4. 清空指定表的所有记录（用演示表操作，避免破坏实验数据；truncate 保留表结构）
+hbase:020:0> create 'lab3_truncate_demo', 'info'
+Created table lab3_truncate_demo
+Took 1.1694 seconds
+=> Hbase::Table - lab3_truncate_demo
+hbase:021:0> put 'lab3_truncate_demo', 'r1', 'info:name', 'a'
+Took 0.0169 seconds
+hbase:022:0> put 'lab3_truncate_demo', 'r2', 'info:name', 'b'
+Took 0.0091 seconds
+hbase:023:0> count 'lab3_truncate_demo'
+2 row(s)
+Took 0.0543 seconds
+=> 2
+hbase:024:0> truncate 'lab3_truncate_demo'
+Truncating 'lab3_truncate_demo' table (it may take a while):
+Disabling table...
+Truncating table...
+Took 2.8935 seconds
+hbase:025:0> count 'lab3_truncate_demo'
+0 row(s)
+Took 1.0791 seconds
+=> 0
+hbase:026:0> disable 'lab3_truncate_demo'
+Took 0.3483 seconds
+hbase:027:0> drop 'lab3_truncate_demo'
+Took 0.3793 seconds
+hbase:028:0> 
+hbase:029:0> # 5. 统计表的行数（以选课表 SC 为例）
+hbase:030:0> count 'SC'
+3 row(s)
+Took 0.0145 seconds
+=> 3
+hbase:031:0> 
+hbase:032:0> exit

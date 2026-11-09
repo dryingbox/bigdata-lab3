@@ -1,0 +1,15 @@
+Hadoop	HDFS,MapReduce,YARN
+HDFS	Hadoop,HBase,Hive,Spark
+MapReduce	Hadoop,HDFS,YARN
+YARN	Hadoop,MapReduce,Spark
+HBase	Hadoop,HDFS,ZooKeeper,Hive
+ZooKeeper	HBase,Oozie,Flume
+Hive	HDFS,MapReduce,HBase,HCatalog,Pig
+Pig	Hive,MapReduce,Hadoop
+Spark	HDFS,YARN,RDD,PageRank,Hadoop
+RDD	Spark,MapReduce
+PageRank	Spark,MapReduce,HDFS
+HCatalog	Hive,Pig,HBase
+Oozie	MapReduce,Hive,ZooKeeper
+Flume	HDFS,HBase,Sqoop
+Sqoop	HDFS,HBase,Hive
